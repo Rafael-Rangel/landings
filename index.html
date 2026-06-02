@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OLF Code | A Ciência da Identidade Olfativa</title>
+<link href="assets/favicon.png" rel="icon" type="image/png"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<script src="js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav flex justify-between items-center px-4 sm:px-6 md:px-12 py-3 md:py-5">
+<img alt="Logo OLF Code" class="w-[140px] sm:w-[170px] md:w-[205px] h-auto object-contain" src="https://media.inlead.cloud/uploads/48022/2026-03-06/md-AnbQj-olfcode-logo-no-background.png"/>
+<div class="hidden md:flex items-center space-x-10">
+<a class="font-label text-xs uppercase tracking-[0.2em] text-primary border-b border-primary/40 pb-1 hover:border-primary transition-all duration-300" href="#colecoes">Coleções</a>
+<a class="font-label text-xs uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-all duration-300" href="#consultoria-ia">Consultoria IA</a>
+<a class="font-label text-xs uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-all duration-300" href="#a-ciencia">A Ciência</a>
+<a class="font-label text-xs uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-all duration-300" href="#atelie">Ateliê</a>
+</div>
+<div class="flex items-center space-x-3 md:space-x-8">
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="md:hidden inline-flex items-center justify-center w-10 h-10 border border-primary/25 text-primary hover:bg-primary/5 transition-colors" id="mobile-menu-toggle" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu">menu</span>
+</button>
+<a class="wa-nav-btn px-3 sm:px-4 md:px-5 py-2 md:py-3 rounded-full bg-gradient-to-r from-[#1AB4D8] to-[#062565] text-white font-label text-[10px] md:text-xs tracking-[0.08em] flex items-center gap-2 hover:from-[#24c1e4] hover:to-[#0b377e] transition-all" href="https://wa.me/5513991829413" target="_blank">
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.8 11.8 0 0 0 12.1 0C5.53 0 .2 5.33.2 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.35-1.67a11.88 11.88 0 0 0 5.72 1.46h.01c6.57 0 11.9-5.33 11.9-11.9a11.8 11.8 0 0 0-3.46-8.41Zm-8.44 18.3h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.22-3.77.99 1.01-3.68-.23-.38a9.86 9.86 0 0 1-1.53-5.21c0-5.45 4.44-9.89 9.9-9.89a9.8 9.8 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.86 9.9Zm5.43-7.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.93 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.2-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.52.08-.8.37-.27.3-1.05 1.03-1.05 2.52s1.08 2.93 1.23 3.13c.15.2 2.11 3.22 5.11 4.51.71.3 1.27.48 1.7.61.71.22 1.35.18 1.86.11.57-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.42-.07-.12-.27-.2-.57-.35Z"/>
+</svg>
+<span class="hidden sm:inline">+55 13 99182-9413</span>
+</a>
+</div>
+</nav>
+<div class="fixed top-[68px] left-0 right-0 z-40 md:hidden px-4 sm:px-6 hidden" id="mobile-menu">
+<div class="glass-card border border-white/60 shadow-xl">
+<div class="flex flex-col py-3">
+<a class="px-5 py-3 font-label text-xs uppercase tracking-[0.22em] text-primary border-b border-primary/10 hover:bg-primary/5 transition-colors" href="#colecoes">Coleções</a>
+<a class="px-5 py-3 font-label text-xs uppercase tracking-[0.22em] text-primary border-b border-primary/10 hover:bg-primary/5 transition-colors" href="#consultoria-ia">Consultoria IA</a>
+<a class="px-5 py-3 font-label text-xs uppercase tracking-[0.22em] text-primary border-b border-primary/10 hover:bg-primary/5 transition-colors" href="#a-ciencia">A Ciência</a>
+<a class="px-5 py-3 font-label text-xs uppercase tracking-[0.22em] text-primary hover:bg-primary/5 transition-colors" href="#atelie">Ateliê</a>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<header class="relative w-full min-h-[640px] md:min-h-[820px] lg:min-h-[980px] flex items-center pt-20 md:pt-24 pb-14 md:pb-24 overflow-hidden bg-gradient-to-br from-[#e8f8fc] via-[#e7efff] to-[#f7fbff]">
+<video autoplay="" class="absolute inset-0 w-full h-full object-cover object-center scale-125 md:scale-110 lg:scale-125" loop="" muted="" playsinline="">
+<source src="assets/media/hero.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-gradient-to-r from-[rgb(10_48_110_/_84%)] via-[rgb(22_98_176_/_72%)] to-[rgb(84_182_232_/_58%)]"></div>
+<div class="container relative z-10 mx-auto px-4 sm:px-6 md:px-12 flex justify-center items-center text-center">
+<div class="z-10 py-10 md:py-20 w-full">
+<div class="liquid-panel rounded-3xl p-6 sm:p-8 md:p-12 bg-white/[0.02] backdrop-blur-lg border border-white/10 shadow-[0_8px_20px_rgba(0,18,62,0.1),0_0_18px_rgba(160,220,255,0.12)]">
+<div class="inline-block px-4 py-1 mb-6 hero-tag rounded-full">
+<p class="text-[10px] uppercase tracking-[0.3em] text-white/90">O Futuro da Fragrância</p>
+</div>
+<h1 class="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-6 md:mb-8">
+                Sua identidade em cada nota.
+            </h1>
+<p class="font-body text-base md:text-lg text-white/85 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+                Descubra a fragrância perfeita para você através da inteligência artificial. Um código olfativo único, desenhado para sua essência.
+            </p>
+<div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+<button class="glass-button text-on-primary w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 font-label text-[11px] md:text-xs uppercase tracking-[0.2em] inline-flex items-center justify-center gap-3">
+                    <i data-lucide="flask-conical" class="lucide-inline"></i>Descobrir meu perfume
+                </button>
+<button class="glass-button-outline w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 font-label text-[11px] md:text-xs uppercase tracking-[0.2em] text-white border-white/40 inline-flex items-center justify-center gap-3">
+                    <i data-lucide="layout-grid" class="lucide-inline"></i>Explorar Coleções
+                </button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Identity Section -->
+<section class="py-20 md:py-40 relative overflow-hidden bg-gradient-to-br from-[#f1fdff] via-[#def7ff] to-[#b7eaff]">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.92),transparent_46%),radial-gradient(circle_at_85%_80%,rgba(124,226,255,0.22),transparent_42%),radial-gradient(circle_at_70%_30%,rgba(73,182,255,0.14),transparent_40%)]"></div>
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-center">
+<div class="image-reveal aspect-[4/5] border border-white/80 shadow-[0_28px_70px_rgba(0,72,132,0.35)]">
+<img alt="Frasco OLF Code" class="w-full h-full object-cover" src="assets/media/Gemini_Generated_Image_b05674b05674b056.png"/>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+<div class="space-y-8">
+<div class="w-12 h-[1px] bg-primary/30"></div>
+<h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-primary leading-tight">
+                    Não é sobre perfume. <br/>É sobre identidade.
+                </h2>
+<p class="font-body text-lg md:text-xl text-on-surface-variant leading-relaxed opacity-80">
+                    Nascemos no cruzamento entre a alta perfumaria francesa e a ciência de dados. A OLF Code não cria fragrâncias genéricas; nós decodificamos sua personalidade em moléculas.
+                </p>
+<div class="pt-8">
+<button class="group flex items-center gap-4 text-primary font-label text-xs uppercase tracking-[0.3em]">
+                        Nossa Filosofia 
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="east">east</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingredient Gallery -->
+<section class="py-20 md:py-32 bg-gradient-to-br from-[#effbfe] via-[#f4f8ff] to-[#eef4ff] scroll-mt-28" id="colecoes">
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<p class="font-label text-[10px] uppercase tracking-[0.4em] text-secondary mb-6">Matéria Prima</p>
+<h2 class="font-headline text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">Uma paleta global de ingredientes puros e elevados.</h2>
+</div>
+<p class="text-on-surface-variant max-w-xs text-sm leading-relaxed opacity-70">Curadoria exclusiva que vai dos jardins de Grécia às montanhas do Japão.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+<!-- Item 1 -->
+<div class="group">
+<div class="image-reveal aspect-square mb-6">
+<img alt="Cítricos e ervas" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&amp;fit=crop&amp;w=900&amp;q=80"/>
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex justify-between items-center px-2">
+<p class="font-headline text-xl text-primary italic">Cítricos &amp; Ervas</p>
+<p class="text-[10px] text-on-surface-variant tracking-[0.2em] uppercase">Notas de Topo</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group lg:mt-16">
+<div class="image-reveal aspect-square mb-6">
+<img alt="Madeiras" class="w-full h-full object-cover" src="assets/media/cta-frasco.jpg"/>
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex justify-between items-center px-2">
+<p class="font-headline text-xl text-primary italic">Madeiras Nobres</p>
+<p class="text-[10px] text-on-surface-variant tracking-[0.2em] uppercase">Notas de Base</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group">
+<div class="image-reveal aspect-square mb-6">
+<img alt="Florais" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&amp;fit=crop&amp;w=900&amp;q=80"/>
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex justify-between items-center px-2">
+<p class="font-headline text-xl text-primary italic">Florais Absolutos</p>
+<p class="text-[10px] text-on-surface-variant tracking-[0.2em] uppercase">Coração</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Process -->
+<section class="py-20 md:py-32 bg-gradient-to-br from-white via-[#eef8ff] to-[#e9f3ff] scroll-mt-28" id="consultoria-ia">
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
+<div class="process-card p-6 md:p-12 flex flex-col justify-between min-h-[280px] md:min-h-[420px]">
+<span class="material-symbols-outlined process-icon icon-edit text-5xl" data-icon="edit_note">edit_note</span>
+<div>
+<p class="text-[10px] uppercase tracking-[0.4em] text-[#0d63af] mb-4">Etapa 01</p>
+<h3 class="font-headline text-3xl text-primary mb-6">Quiz Sensorial</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-70">Responda a perguntas profundas sobre estilo de vida, memórias e preferências visuais.</p>
+</div>
+</div>
+<div class="process-card p-6 md:p-12 flex flex-col justify-between min-h-[280px] md:min-h-[420px]">
+<span class="material-symbols-outlined process-icon icon-psychology text-5xl" data-icon="psychology">psychology</span>
+<div>
+<p class="text-[10px] uppercase tracking-[0.4em] text-[#0d63af] mb-4">Etapa 02</p>
+<h3 class="font-headline text-3xl text-primary mb-6">Processamento IA</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-80">Nosso algoritmo proprietário analisa milhares de combinações para encontrar o seu espectro olfativo.</p>
+</div>
+</div>
+<div class="process-card p-6 md:p-12 flex flex-col justify-between min-h-[280px] md:min-h-[420px]">
+<span class="material-symbols-outlined process-icon icon-science text-5xl" data-icon="science">science</span>
+<div>
+<p class="text-[10px] uppercase tracking-[0.4em] text-[#0d63af] mb-4">Etapa 03</p>
+<h3 class="font-headline text-3xl text-primary mb-6">Identificação</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-70">Sua fórmula é gerada e enviada para nossa indústria parceira, onde é fabricada em ambiente industrial certificado, seguindo os padrões regulatórios da Anvisa.</p>
+</div>
+</div>
+<div class="process-card p-6 md:p-12 flex flex-col justify-between min-h-[280px] md:min-h-[420px]">
+<span class="material-symbols-outlined process-icon icon-shipping text-5xl" data-icon="local_shipping">local_shipping</span>
+<div>
+<p class="text-[10px] uppercase tracking-[0.4em] text-[#0d63af] mb-4">Etapa 04</p>
+<h3 class="font-headline text-3xl text-primary mb-6">Envio Exclusivo</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-70">Você recebe em casa seu frasco numerado com seu nome e perfil olfativo detalhado.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lifestyle Section -->
+<section class="py-20 md:py-40 bg-gradient-to-br from-[#edf9fd] via-[#f2f7ff] to-[#eaf1ff]">
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
+<div class="relative order-2 md:order-1">
+<div class="aspect-[4/5] image-reveal shadow-2xl">
+<img alt="Frasco OLF Code com notas cítricas" class="w-full h-full object-cover" src="assets/media/Gemini_Generated_Image_x7kvunx7kvunx7kv.png"/>
+</div>
+<div class="absolute -top-10 -right-10 w-48 h-48 glass-card flex items-center justify-center p-8 hidden lg:flex">
+<p class="text-center text-[10px] font-label uppercase tracking-widest text-primary leading-loose">Pura Essência <br/> Sob Medida</p>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<h2 class="font-headline text-3xl sm:text-4xl md:text-5xl text-primary mb-8 md:mb-12 leading-tight">Perfumes comuns são feitos para todos. O seu é feito para você.</h2>
+<div class="space-y-8 md:space-y-16">
+<div class="border-l border-primary/20 pl-6 md:pl-10 group">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary mb-4 group-hover:tracking-[0.4em] transition-all">Exclusividade Radical</p>
+<p class="text-on-surface-variant text-lg leading-relaxed opacity-80 italic">"Esqueça as prateleiras lotadas. Sua fragrância é produzida sob demanda, evitando o desperdício e garantindo exclusividade total."</p>
+</div>
+<div class="border-l border-primary/20 pl-6 md:pl-10 group">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary mb-4 group-hover:tracking-[0.4em] transition-all">Performance Superior</p>
+<p class="text-on-surface-variant text-lg leading-relaxed opacity-80">Trabalhamos apenas com matérias-primas de alta concentração (Eau de Parfum), garantindo fixação e projeção sem precedentes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Full Width Vision -->
+<section class="relative h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden scroll-mt-28" id="a-ciencia">
+<img alt="A alma da fragrância" class="absolute inset-0 w-full h-full object-cover brightness-75" src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&amp;fit=crop&amp;w=1800&amp;q=80"/>
+<div class="absolute inset-0 bg-gradient-to-r from-[rgb(26_180_216_/_68%)] via-[rgb(13_92_165_/_88%)] to-[rgb(6_37_101_/_83%)]"></div>
+<div class="relative z-10 text-center text-white px-6">
+<h2 class="font-headline text-4xl sm:text-5xl md:text-8xl mb-6 md:mb-8 tracking-tight">A Ciência da Memória</h2>
+<p class="font-body text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-70 font-light tracking-wide">Transformando dados abstratos em experiências sensoriais que duram para sempre.</p>
+<a class="cta-visual cta-outline-light inline-flex items-center justify-center gap-3 mt-8 px-8 py-4 font-label text-[11px] md:text-xs uppercase tracking-[0.28em]" href="https://wa.me/5513991829413" target="_blank"><i class="fa-brands fa-whatsapp icon-inline"></i>Entrar em contato</a>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-20 md:py-40 bg-white">
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="text-center mb-24">
+<p class="font-label text-[10px] uppercase tracking-[0.5em] text-secondary mb-6">Jornal</p>
+<h2 class="font-headline text-3xl sm:text-4xl md:text-5xl text-primary">Experiências Reais</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
+<div class="glass-card liquid-panel p-7 md:p-12 hover:shadow-xl transition-all duration-500">
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+<p class="font-body text-primary text-lg mb-12 italic leading-relaxed">"A IA captou perfeitamente minha preferência por notas amadeiradas secas. É surreal."</p>
+<div class="flex items-center gap-4">
+<div class="w-8 h-[1px] bg-primary/20"></div>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Marina V. | Arquiteta</p>
+</div>
+</div>
+<div class="glass-card liquid-panel p-7 md:p-12 md:translate-y-8 hover:shadow-xl transition-all duration-500">
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+<p class="font-body text-primary text-lg mb-12 italic leading-relaxed">"O processo foi terapêutico e o resultado surpreendente. Embalagem impecável."</p>
+<div class="flex items-center gap-4">
+<div class="w-8 h-[1px] bg-primary/20"></div>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Gabriel R. | Empresário</p>
+</div>
+</div>
+<div class="glass-card liquid-panel p-7 md:p-12 hover:shadow-xl transition-all duration-500">
+<div class="flex gap-1 mb-8">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+<p class="font-body text-primary text-lg mb-12 italic leading-relaxed">"A fixação é surreal. Usei de manhã e à noite ainda sentia as notas de fundo."</p>
+<div class="flex items-center gap-4">
+<div class="w-8 h-[1px] bg-primary/20"></div>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Helena L. | Designer</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Business CTA -->
+<section class="py-20 md:py-32 bg-gradient-to-br from-[#eef7ff] via-white to-[#e9f6fc] scroll-mt-28" id="atelie">
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-start">
+<div class="lg:col-span-7 relative overflow-hidden glass-card liquid-panel p-8 md:p-12 border border-[#0d63af]/15 bg-gradient-to-br from-[#eefbff] via-[#def5ff] to-[#cdeeff]">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.74),transparent_58%),radial-gradient(circle_at_85%_80%,rgba(124,226,255,0.24),transparent_58%),radial-gradient(circle_at_70%_32%,rgba(73,182,255,0.17),transparent_56%),radial-gradient(circle_at_35%_70%,rgba(112,205,255,0.14),transparent_52%)] pointer-events-none"></div>
+<div class="relative z-10">
+<p class="font-label text-[10px] uppercase tracking-[0.45em] text-[#0d63af] mb-5">Plano Business</p>
+<h2 class="font-headline text-3xl sm:text-4xl md:text-5xl text-primary mb-6 leading-tight">Sua loja vende para a propria base e lucra com comissao por venda.</h2>
+<p class="font-body text-on-surface-variant text-base md:text-lg leading-relaxed mb-8">Entre no modelo de parceria da OLF Code e transforme o atendimento em um canal de receita recorrente. Voce ativa seu relacionamento com clientes, oferece um produto premium e recebe percentual sobre cada venda concluida.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8 text-left">
+<div class="bg-[#f4fbff] border border-[#0d63af]/20 p-4">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-[#0d63af] mb-2">Passo 01</p>
+<p class="text-primary text-sm leading-relaxed flex items-start gap-2"><i data-lucide="message-circle" class="lucide-inline mt-0.5"></i><span>Fale com nosso time e receba a apresentacao completa do Plano Business.</span></p>
+</div>
+<div class="bg-[#f4fbff] border border-[#0d63af]/20 p-4">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-[#0d63af] mb-2">Passo 02</p>
+<p class="text-primary text-sm leading-relaxed flex items-start gap-2"><i data-lucide="settings-2" class="lucide-inline mt-0.5"></i><span>Definimos comissao, formato de venda e materiais para sua operacao.</span></p>
+</div>
+<div class="bg-[#f4fbff] border border-[#0d63af]/20 p-4">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-[#0d63af] mb-2">Passo 03</p>
+<p class="text-primary text-sm leading-relaxed flex items-start gap-2"><i data-lucide="trending-up" class="lucide-inline mt-0.5"></i><span>Voce ativa a oferta para seus clientes e comeca a vender com suporte comercial.</span></p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-white border border-[#0d63af]/15 p-5">
+<p class="font-label text-[10px] uppercase tracking-[0.25em] text-[#0d63af] mb-2">Exclusivo</p>
+<p class="text-primary text-sm leading-relaxed">Produto diferenciado para a sua carteira.</p>
+</div>
+<div class="bg-white border border-[#0d63af]/15 p-5">
+<p class="font-label text-[10px] uppercase tracking-[0.25em] text-[#0d63af] mb-2">Recorrencia</p>
+<p class="text-primary text-sm leading-relaxed">Nova frente comercial sem ampliar estrutura.</p>
+</div>
+<div class="bg-white border border-[#0d63af]/15 p-5">
+<p class="font-label text-[10px] uppercase tracking-[0.25em] text-[#0d63af] mb-2">Comissao</p>
+<p class="text-primary text-sm leading-relaxed">Percentual claro em cada fechamento.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 lg:self-center bg-gradient-to-br from-[#062565] via-[#0b377e] to-[#0d63af] p-8 md:p-10 text-white flex flex-col justify-center shadow-2xl">
+<div class="text-center flex flex-col items-center">
+<p class="font-label text-[10px] uppercase tracking-[0.35em] text-white/70 mb-4">Parceria Comercial</p>
+<h3 class="font-headline text-2xl md:text-3xl leading-tight mb-5">Ative o Plano Business em poucos passos.</h3>
+<p class="text-white/85 text-sm md:text-base leading-relaxed mb-8 max-w-md">Nossa equipe comercial orienta onboarding, argumentacao de venda e formato de comissionamento para seu perfil de negocio.</p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="cta-visual cta-solid-dark w-full px-8 py-4 font-label text-[11px] md:text-xs uppercase tracking-[0.28em] text-center border border-white inline-flex items-center justify-center gap-3" href="https://wa.me/5513991829413" target="_blank"><i class="fa-solid fa-store icon-inline"></i>Quero revender OLF Code</a>
+<a class="cta-visual cta-outline-light w-full px-8 py-4 font-label text-[11px] md:text-xs uppercase tracking-[0.28em] text-center inline-flex items-center justify-center gap-3" href="https://wa.me/5513991829413" target="_blank"><i class="fa-solid fa-headset icon-inline"></i>Falar com time comercial</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-20 md:py-40 bg-[#02173f] relative overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<img alt="Frasco de perfume com composição luxuosa e quente" class="w-full h-full object-cover" src="assets/media/cta-frasco.jpg"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#02173f]/95 via-[#0a2b6e]/85 to-[#1AB4D8]/70"></div>
+<div class="container mx-auto px-4 sm:px-6 md:px-12 text-center relative z-10">
+<h2 class="font-headline text-3xl sm:text-4xl md:text-7xl text-white mb-6 md:mb-8">Descubra sua fragrância ideal.</h2>
+<p class="font-body text-white/90 mb-10 md:mb-16 text-base md:text-xl max-w-2xl mx-auto">Seu código olfativo exclusivo está a poucos minutos de distancia, com recomendacao inteligente e resultado sob medida para o seu perfil.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<a class="cta-visual bg-white text-primary w-full sm:w-auto px-10 md:px-16 py-4 md:py-6 font-label text-[11px] md:text-xs uppercase tracking-[0.3em] hover:bg-[#dff7fd] transition-all shadow-2xl text-center inline-flex items-center justify-center gap-3" href="#" target="_self">
+                <i data-lucide="sparkles" class="lucide-inline"></i>Iniciar Quiz IA
+            </a>
+<a class="cta-visual cta-outline-light w-full sm:w-auto px-10 md:px-16 py-4 md:py-6 font-label text-[11px] md:text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-3" href="https://wa.me/5513991829413" target="_blank">
+                <i class="fa-brands fa-whatsapp icon-inline"></i>Atendimento Privé
+            </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-stone-100 py-16 md:py-24">
+<div class="container mx-auto px-4 sm:px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-24">
+<div class="md:col-span-5">
+<img alt="Logo OLF Code" class="w-[160px] md:w-[205px] h-auto object-contain mb-8" src="https://media.inlead.cloud/uploads/48022/2026-03-06/md-AnbQj-olfcode-logo-no-background.png"/>
+<p class="text-on-surface-variant font-body text-sm tracking-wide max-w-sm leading-loose opacity-70">
+                    O Ateliê Digital. Decodificando a essência humana através da tecnologia e da arte perfumística. Feito para quem não se contenta com o comum.
+                </p>
+</div>
+<div class="md:col-span-2 space-y-6">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">Explorar</p>
+<ul class="space-y-4">
+<li><a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-[#1AB4D8] transition-colors inline-flex items-center gap-2" href="#"><i data-lucide="shield-check" class="lucide-inline"></i>Política de Privacidade</a></li>
+<li><a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-[#1AB4D8] transition-colors inline-flex items-center gap-2" href="#"><i data-lucide="file-text" class="lucide-inline"></i>Termos de Serviço</a></li>
+<li><a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-[#1AB4D8] transition-colors inline-flex items-center gap-2" href="#"><i data-lucide="flask-conical" class="lucide-inline"></i>Ciência da Fragrância</a></li>
+</ul>
+</div>
+<div class="md:col-span-2 space-y-6">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">Conectar</p>
+<ul class="space-y-4">
+<li><a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-[#1AB4D8] transition-colors inline-flex items-center gap-2" href="#"><i class="fa-brands fa-instagram icon-inline"></i>Instagram</a></li>
+<li><a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-[#1AB4D8] transition-colors inline-flex items-center gap-2" href="#"><i class="fa-solid fa-newspaper icon-inline"></i>Imprensa</a></li>
+<li><a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-[#1AB4D8] transition-colors inline-flex items-center gap-2" href="#"><i data-lucide="phone-call" class="lucide-inline"></i>Fale Conosco</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary mb-8">Boletim</p>
+<div class="flex border-b border-primary/20 pb-2">
+<input class="bg-transparent border-none text-[10px] w-full focus:ring-0 placeholder:text-primary/30 uppercase tracking-widest" placeholder="SEU E-MAIL" type="email"/>
+<button class="material-symbols-outlined text-primary/40 hover:text-primary transition-colors" data-icon="east">east</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-stone-50">
+<p class="font-label text-[9px] uppercase tracking-[0.4em] text-primary/40">
+                © 2026 OLF Code. Laboratório Digital de Fragrâncias. Todos os direitos reservados.
+            </p>
+</div>
+</div>
+</footer>
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-xl z-[60] hidden" id="cookie-banner">
+<div class="glass-card border border-white/70 bg-white/90 backdrop-blur-md px-4 py-3 shadow-xl">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+<p class="text-[11px] md:text-xs text-primary/80 leading-relaxed">
+        Utilizamos cookies para melhorar sua experiencia e analisar o uso do site.
+      </p>
+<button class="cta-visual cta-solid-dark border border-white text-white px-4 py-2 font-label text-[10px] uppercase tracking-[0.2em] w-full sm:w-auto inline-flex items-center justify-center gap-2" id="cookie-accept" type="button">
+        <i data-lucide="check" class="lucide-inline"></i>Aceitar cookies
+      </button>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script defer src="js/main.js"></script>
+
+</body></html>
