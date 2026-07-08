@@ -1,0 +1,621 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="pt-BR"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Relux Ocean | Experiências Náuticas de Luxo</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&amp;family=Bad+Script&amp;family=Inter:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Lexend+Zetta:wght@100..900&amp;display=swap" rel="stylesheet">
+    <style>
+            .font-lexend-zetta { font-family: 'Lexend Zetta', sans-serif; }
+            .font-bad-script { font-family: 'Bad Script', cursive; }
+            .font-inter { font-family: 'Inter', sans-serif; }
+            
+            .glass-header {
+                backdrop-filter: blur(12px);
+                background: rgba(255, 248, 240, 0.7);
+            }
+    
+            .ocean-shadow {
+                box-shadow: 0 20px 50px -10px rgba(6, 42, 78, 0.15);
+            }
+    
+            .gold-border-gradient {
+                border: 1px solid transparent;
+                background: linear-gradient(#f6eddc, #f6eddc) padding-box,
+                            linear-gradient(to bottom right, #D4A853, #7b5804) border-box;
+            }
+    
+            .gallery-carousels {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+            }
+
+            .gallery-carousel {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .gallery-carousel::before,
+            .gallery-carousel::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: clamp(48px, 12vw, 160px);
+                z-index: 2;
+                pointer-events: none;
+            }
+
+            .gallery-carousel::before {
+                left: 0;
+                background: linear-gradient(to right, #062A4E 0%, transparent 100%);
+            }
+
+            .gallery-carousel::after {
+                right: 0;
+                background: linear-gradient(to left, #062A4E 0%, transparent 100%);
+            }
+
+            .gallery-carousel__track {
+                display: flex;
+                width: max-content;
+            }
+
+            .gallery-carousel--left .gallery-carousel__track {
+                animation: gallery-scroll-left 55s linear infinite;
+            }
+
+            .gallery-carousel--right .gallery-carousel__track {
+                animation: gallery-scroll-right 48s linear infinite;
+            }
+
+            .gallery-carousel--left-slow .gallery-carousel__track {
+                animation: gallery-scroll-left 62s linear infinite;
+            }
+
+            .gallery-carousel__set {
+                display: flex;
+                gap: 1rem;
+                padding-right: 1rem;
+                flex-shrink: 0;
+            }
+
+            .gallery-carousel__item {
+                flex-shrink: 0;
+                overflow: hidden;
+                border-radius: 0.75rem;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            }
+
+            .gallery-carousel__item img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+            }
+
+            .gallery-carousel__item:hover img {
+                transform: scale(1.08);
+            }
+
+            .gallery-carousel--row-1 .gallery-carousel__item {
+                width: clamp(220px, 28vw, 340px);
+                height: clamp(140px, 16vw, 200px);
+            }
+
+            .gallery-carousel--row-2 .gallery-carousel__item {
+                width: clamp(200px, 24vw, 300px);
+                height: clamp(160px, 18vw, 230px);
+            }
+
+            .gallery-carousel--row-3 .gallery-carousel__item {
+                width: clamp(210px, 26vw, 320px);
+                height: clamp(150px, 17vw, 215px);
+            }
+
+            @keyframes gallery-scroll-left {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
+            }
+
+            @keyframes gallery-scroll-right {
+                from { transform: translateX(-50%); }
+                to { transform: translateX(0); }
+            }
+
+            .gallery-carousel:hover .gallery-carousel__track {
+                animation-play-state: paused;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .gallery-carousel__track {
+                    animation: none !important;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .gallery-carousels {
+                    gap: 0.75rem;
+                }
+
+                .gallery-carousel__set {
+                    gap: 0.75rem;
+                    padding-right: 0.75rem;
+                }
+            }
+
+            .icon-whatsapp {
+                width: 1.125rem;
+                height: 1.125rem;
+                flex-shrink: 0;
+                fill: currentColor;
+            }
+            .icon-whatsapp-lg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            .icon-whatsapp-xl {
+                width: 1.75rem;
+                height: 1.75rem;
+            }
+        </style>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "primary": "#3F8CCA", // Custom Blue
+                        "secondary": "#D4A853", // Custom Gold
+                        "navy-deep": "#062A4E", // Custom Navy
+                        "ice-white": "#F2F2F2",
+                        "beige-luxury": "#DCD4C4",
+                        "primary-fixed-dim": "#97cbff",
+                        "outline": "#717881",
+                        "surface-bright": "#fff8f0",
+                        "inverse-surface": "#343025",
+                        "on-primary": "#ffffff",
+                        "surface": "#fff8f0",
+                        "on-surface": "#1f1b11",
+                        "surface-variant": "#eae2d1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fdcd74",
+                        "on-background": "#1f1b11",
+                        "surface-container": "#f6eddc",
+                        "tertiary-container": "#5a769e",
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                },
+                "spacing": {
+                        "section-padding-desktop": "120px",
+                        "section-padding-mobile": "60px",
+                        "gutter": "32px",
+                        "container-max": "1440px",
+                        "margin-base": "16px"
+                },
+                "fontFamily": {
+                        "headline-md": ["Lexend Zetta"],
+                        "quote-accent": ["Bad Script"],
+                        "display-lg": ["Lexend Zetta"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                },
+                "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "quote-accent": ["22px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                }
+              },
+            },
+          }
+        </script>
+    </head>
+    <body class="bg-surface font-body-md text-on-surface">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-6 max-w-full mx-auto glass-header transition-all duration-300" id="main-nav">
+    <div class="flex items-center gap-2">
+    <span class="font-display-lg text-[20px] md:text-[24px] tracking-tighter text-navy-deep font-lexend-zetta">RELUX OCEAN</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+    <a class="text-label-caps font-label-caps text-navy-deep hover:text-primary transition-colors" href="#">INÍCIO</a>
+    <a class="text-label-caps font-label-caps text-navy-deep hover:text-primary transition-colors" href="#experiencias">EXPERIÊNCIAS</a>
+    <a class="text-label-caps font-label-caps text-navy-deep hover:text-primary transition-colors" href="#roteiros">ROTEIROS</a>
+    <a class="text-label-caps font-label-caps text-navy-deep hover:text-primary transition-colors" href="#sobre">SOBRE</a>
+    <a class="text-label-caps font-label-caps text-navy-deep hover:text-primary transition-colors" href="#galeria">GALERIA</a>
+    </nav>
+    <a class="bg-primary text-white px-6 py-3 rounded-full font-label-caps text-label-caps flex items-center gap-2 hover:bg-navy-deep transition-all active:scale-95 duration-200" href="https://wa.me/5500000000000" target="_blank">
+                FALE CONOSCO
+                <svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-navy-deep/40 z-10"></div>
+    <img alt="Lancha de luxo navegando em águas cristalinas entre ilhas tropicais" class="w-full h-full object-cover" fetchpriority="high" decoding="async" src="imagens/hero-banner.jpg">
+    </div>
+    <div class="relative z-20 container-max mx-auto px-gutter text-center">
+    <span class="font-quote-accent text-secondary text-2xl md:text-4xl block mb-4 animate-fade-in">O mar te chama, a Relux te leva</span>
+    <h1 class="font-display-lg text-white text-display-lg-mobile md:text-display-lg max-w-4xl mx-auto mb-6 leading-tight">
+                    EXPERIÊNCIAS NÁUTICAS QUE SE TORNAM MEMÓRIAS
+                </h1>
+    <p class="font-body-lg text-white/90 max-w-2xl mx-auto mb-10">
+                    Passeios de lancha exclusivos em Ilha Grande, Itacuruçá e Barra de Guaratiba. O luxo e a natureza em perfeita harmonia.
+                </p>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+    <a class="bg-primary text-white px-10 py-5 rounded-full font-label-caps text-label-caps text-[14px] flex items-center gap-3 hover:bg-navy-deep hover:shadow-xl transition-all scale-100 hover:scale-105 active:scale-95" href="https://wa.me/5500000000000">
+                        RESERVE SUA EXPERIÊNCIA
+                        <span class="material-symbols-outlined">calendar_month</span>
+    </a>
+    </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+    <span class="material-symbols-outlined text-white text-4xl">expand_more</span>
+    </div>
+    </section>
+    <!-- About Section -->
+    <section class="bg-ice-white py-section-padding-mobile md:py-section-padding-desktop" id="sobre">
+    <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="order-2 md:order-1">
+    <span class="text-secondary font-label-caps text-label-caps block mb-4">NOSSA ESSÊNCIA</span>
+    <h2 class="font-headline-md text-navy-deep text-3xl md:text-4xl mb-8 font-lexend-zetta">
+                        O MAR NÃO É UM DESTINO.<br>É UM ESTADO DE ESPÍRITO.
+                    </h2>
+    <p class="text-navy-deep/70 font-body-lg mb-10 leading-relaxed">
+                        Na Relux Ocean, acreditamos que navegar é mais do que se deslocar entre praias; é sobre a liberdade, o sol na pele e o som das ondas. Oferecemos uma curadoria impecável de embarcações e serviços para que seu único trabalho seja apreciar a vista.
+                    </p>
+    <div class="space-y-8">
+    <div class="flex items-start gap-6">
+    <div class="w-12 h-12 rounded-full border border-secondary flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-secondary">anchor</span>
+    </div>
+    <div>
+    <h4 class="font-bold text-navy-deep mb-1">Serviço Personalizado</h4>
+    <p class="text-sm text-navy-deep/60">Roteiros sob medida desenhados para seus desejos e necessidades específicas.</p>
+    </div>
+    </div>
+    <div class="flex items-start gap-6">
+    <div class="w-12 h-12 rounded-full border border-secondary flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-secondary">travel_explore</span>
+    </div>
+    <div>
+    <h4 class="font-bold text-navy-deep mb-1">Rotas Exclusivas</h4>
+    <p class="text-sm text-navy-deep/60">Acesso a praias desertas e recantos escondidos que só quem conhece o mar pode oferecer.</p>
+    </div>
+    </div>
+    <div class="flex items-start gap-6">
+    <div class="w-12 h-12 rounded-full border border-secondary flex items-center justify-center flex-shrink-0">
+    <span class="material-symbols-outlined text-secondary">waves</span>
+    </div>
+    <div>
+    <h4 class="font-bold text-navy-deep mb-1">Experiência Premium</h4>
+    <p class="text-sm text-navy-deep/60">Embarcações de alto padrão com tripulação treinada para o máximo conforto.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="order-1 md:order-2 relative">
+    <div class="absolute -top-6 -left-6 w-full h-full bg-beige-luxury -z-10 rounded-lg"></div>
+    <picture><source srcset="imagens/150BC390-0703-4FF8-AE34-ADB4416FB82E.webp" type="image/webp"><img alt="Grupo a bordo em direção às ilhas" class="w-full h-[600px] object-cover rounded-lg ocean-shadow" src="imagens/150BC390-0703-4FF8-AE34-ADB4416FB82E.jpg" loading="lazy" decoding="async"></picture>
+    </div>
+    </div>
+    </section>
+    <!-- Why Choose Us -->
+    <section class="bg-navy-deep py-section-padding-mobile md:py-section-padding-desktop text-white">
+    <div class="max-w-container-max mx-auto px-gutter">
+    <div class="text-center mb-20">
+    <h2 class="font-headline-md text-secondary text-3xl md:text-4xl font-lexend-zetta mb-4">POR QUE ESCOLHER A RELUX?</h2>
+    <div class="w-20 h-1 bg-secondary mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <!-- Card 1 -->
+    <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">sailing</span>
+    <h3 class="font-bold text-lg mb-3">Vivência Premium</h3>
+    <p class="text-sm text-white/60">Embarcações impecáveis e novas para garantir segurança e sofisticação.</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">headset_mic</span>
+    <h3 class="font-bold text-lg mb-3">Atendimento</h3>
+    <p class="text-sm text-white/60">Suporte humanizado do primeiro contato até o desembarque final.</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">beach_access</span>
+    <h3 class="font-bold text-lg mb-3">Curadoria</h3>
+    <p class="text-sm text-white/60">Seleção rigorosa de cada detalhe, das rotas aos serviços de bordo.</p>
+    </div>
+    <!-- Card 4 -->
+    <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">key</span>
+    <h3 class="font-bold text-lg mb-3">Exclusividade</h3>
+    <p class="text-sm text-white/60">Ambientes privados para momentos memoráveis com quem você ama.</p>
+    </div>
+    <!-- Card 5 -->
+    <div class="p-8 border border-white/10 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
+    <span class="material-symbols-outlined text-secondary text-4xl mb-6">explore</span>
+    <h3 class="font-bold text-lg mb-3">Destinos</h3>
+    <p class="text-sm text-white/60">O melhor do litoral fluminense com roteiros inexplorados.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Routes Section -->
+    <section class="bg-ice-white py-section-padding-mobile md:py-section-padding-desktop" id="roteiros">
+    <div class="max-w-container-max mx-auto px-gutter">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+    <div>
+    <span class="text-secondary font-label-caps text-label-caps block mb-4">EXPLORE O LITORAL</span>
+    <h2 class="font-headline-md text-navy-deep text-3xl md:text-4xl font-lexend-zetta">NOSSOS ROTEIROS</h2>
+    </div>
+    <p class="max-w-md text-navy-deep/60">Destinos paradisíacos selecionados a dedo para proporcionar o cenário perfeito para sua aventura.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Route 1 -->
+    <div class="group bg-white rounded-2xl overflow-hidden ocean-shadow hover:-translate-y-2 transition-all duration-300">
+    <div class="h-80 overflow-hidden relative">
+    <picture><source srcset="imagens/CBC422ED-545E-4E5D-9820-BAE8F527E03C.webp" type="image/webp"><img alt="Ilha Grande" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="imagens/CBC422ED-545E-4E5D-9820-BAE8F527E03C.jpg" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="p-8">
+    <h3 class="font-lexend-zetta text-xl text-navy-deep mb-4">Ilha Grande</h3>
+    <p class="text-navy-deep/60 text-sm mb-8 leading-relaxed">Águas cristalinas, Lagoa Azul e praias desertas em um dos destinos mais icônicos do Brasil.</p>
+    <a class="inline-flex items-center justify-center gap-2 w-full border border-secondary text-secondary py-3 rounded-full font-label-caps text-xs hover:bg-secondary hover:text-white transition-all" href="https://wa.me/5500000000000?text=Olá! Gostaria de saber mais sobre o passeio de barco em Ilha Grande.">SOLICITE ATENDIMENTO<svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    </div>
+    </div>
+    <!-- Route 2 -->
+    <div class="group bg-white rounded-2xl overflow-hidden ocean-shadow hover:-translate-y-2 transition-all duration-300">
+    <div class="h-80 overflow-hidden relative">
+    <picture><source srcset="imagens/56B7F34A-06CE-4B0E-88D2-C469BE833874.webp" type="image/webp"><img alt="Itacuruçá" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="imagens/56B7F34A-06CE-4B0E-88D2-C469BE833874.jpg" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="p-8">
+    <h3 class="font-lexend-zetta text-xl text-navy-deep mb-4">Itacuruçá</h3>
+    <p class="text-navy-deep/60 text-sm mb-8 leading-relaxed">Um refúgio de águas calmas e ilhas paradisíacas na Baía de Sepetiba. Perfeito para relaxar.</p>
+    <a class="inline-flex items-center justify-center gap-2 w-full border border-secondary text-secondary py-3 rounded-full font-label-caps text-xs hover:bg-secondary hover:text-white transition-all" href="https://wa.me/5500000000000?text=Olá! Gostaria de saber mais sobre o passeio de barco em Itacuruçá.">SOLICITE ATENDIMENTO<svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    </div>
+    </div>
+    <!-- Route 3 -->
+    <div class="group bg-white rounded-2xl overflow-hidden ocean-shadow hover:-translate-y-2 transition-all duration-300">
+    <div class="h-80 overflow-hidden relative">
+    <picture><source srcset="imagens/51562660-1A13-4D3E-9B56-965AD3E545A5.webp" type="image/webp"><img alt="Barra de Guaratiba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="imagens/51562660-1A13-4D3E-9B56-965AD3E545A5.jpg" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="p-8"><h3 class="font-lexend-zetta text-xl text-navy-deep mb-4">Barra de Guaratiba</h3><p class="text-navy-deep/60 text-sm mb-8 leading-relaxed">Passeios de barco exclusivos e aluguel de jetski em um cenário selvagem com o pôr do sol mais bonito do Rio.</p><a class="inline-flex items-center justify-center gap-2 w-full border border-secondary text-secondary py-3 rounded-full font-label-caps text-xs hover:bg-secondary hover:text-white transition-all" href="https://wa.me/5500000000000?text=Olá! Gostaria de saber mais sobre os passeios de barco e jetski em Barra de Guaratiba.">SOLICITE ATENDIMENTO<svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Custom Experiences -->
+    <section class="bg-beige-luxury py-section-padding-mobile md:py-section-padding-desktop" id="experiencias">
+    <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div class="relative group">
+    <div class="overflow-hidden rounded-2xl shadow-2xl">
+    <picture><source srcset="imagens/4ABCD396-E01C-4884-8B81-79484B26223D.webp" type="image/webp"><img alt="Experiências a bordo" class="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700" src="imagens/4ABCD396-E01C-4884-8B81-79484B26223D.jpg" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="absolute -bottom-10 -right-10 bg-navy-deep p-8 text-white rounded-lg hidden lg:block">
+    <span class="font-lexend-zetta text-3xl block text-secondary">100%</span>
+    <span class="text-xs font-label-caps">Personalizado</span>
+    </div>
+    </div>
+    <div>
+    <span class="text-navy-deep/60 font-label-caps text-label-caps block mb-4 uppercase">Para cada ocasião</span>
+    <h2 class="font-headline-md text-navy-deep text-3xl md:text-4xl font-lexend-zetta mb-8">EXPERIÊNCIAS SOB MEDIDA</h2>
+    <p class="text-navy-deep/70 mb-10 leading-relaxed">Tornamos qualquer evento em uma memória eterna. Do café da manhã a bordo a celebrações corporativas, nossa equipe cuida de todos os detalhes para você.</p>
+    <ul class="space-y-4 mb-10">
+    <li class="flex items-center gap-3 text-navy-deep font-semibold">
+    <span class="material-symbols-outlined text-secondary">celebration</span> Aniversários e Celebrações
+                        </li>
+    <li class="flex items-center gap-3 text-navy-deep font-semibold">
+    <span class="material-symbols-outlined text-secondary">favorite</span> Pedidos de Casamento &amp; Romântico
+                        </li>
+    <li class="flex items-center gap-3 text-navy-deep font-semibold">
+    <span class="material-symbols-outlined text-secondary">groups</span> Encontros de Família e Amigos
+                        </li>
+    <li class="flex items-center gap-3 text-navy-deep font-semibold">
+    <span class="material-symbols-outlined text-secondary">directions_boat</span> Eventos Corporativos &amp; Networking
+                        </li>
+    <li class="flex items-center gap-3 text-navy-deep font-semibold">
+    <span class="material-symbols-outlined text-secondary">sunny</span> Day Use Premium
+                        </li>
+    </ul>
+    <a class="bg-navy-deep text-white px-10 py-5 rounded-full font-label-caps text-label-caps text-[14px] inline-flex items-center gap-3 hover:bg-primary transition-all" href="https://wa.me/5500000000000">
+                        RECEBA UMA PROPOSTA
+                        <svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    </div>
+    </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="bg-navy-deep py-16 md:py-20 overflow-hidden" id="galeria">
+    <div class="max-w-container-max mx-auto px-gutter mb-10">
+    <div class="text-center">
+    <h2 class="font-headline-md text-white text-3xl md:text-4xl font-lexend-zetta mb-4">NOSSA GALERIA</h2>
+    <p class="text-white/50 font-label-caps text-label-caps tracking-widest">EDITORIAL LIFESTYLE</p>
+    </div>
+    </div>
+    <div class="gallery-carousels">
+
+    <!-- Carrossel 1 — esquerda -->
+    <div class="gallery-carousel gallery-carousel--left gallery-carousel--row-1">
+    <div class="gallery-carousel__track">
+    <div class="gallery-carousel__set">
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/IMG_0730_VSCO.webp" type="image/webp"><img alt="Mergulho ao mar" src="imagens/IMG_0730_VSCO.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-mergulho.webp" type="image/webp"><img alt="Salto na água" src="imagens/gallery-mergulho.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.webp" type="image/webp"><img alt="Diversão a bordo" src="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.webp" type="image/webp"><img alt="Pôr do sol no mar" src="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-jetski-action.webp" type="image/webp"><img alt="Jetski em ação" src="imagens/gallery-jetski-action.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/56B7F34A-06CE-4B0E-88D2-C469BE833874.webp" type="image/webp"><img alt="Banho de mar" src="imagens/56B7F34A-06CE-4B0E-88D2-C469BE833874.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-praia-deserta.webp" type="image/webp"><img alt="Praia deserta" src="imagens/gallery-praia-deserta.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/CBC422ED-545E-4E5D-9820-BAE8F527E03C.webp" type="image/webp"><img alt="Ilha Grande vista aérea" src="imagens/CBC422ED-545E-4E5D-9820-BAE8F527E03C.jpg" loading="lazy" decoding="async"></picture></div>
+    </div>
+    <div class="gallery-carousel__set" aria-hidden="true">
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/IMG_0730_VSCO.webp" type="image/webp"><img alt="" src="imagens/IMG_0730_VSCO.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-mergulho.webp" type="image/webp"><img alt="" src="imagens/gallery-mergulho.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.webp" type="image/webp"><img alt="" src="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.webp" type="image/webp"><img alt="" src="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-jetski-action.webp" type="image/webp"><img alt="" src="imagens/gallery-jetski-action.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/56B7F34A-06CE-4B0E-88D2-C469BE833874.webp" type="image/webp"><img alt="" src="imagens/56B7F34A-06CE-4B0E-88D2-C469BE833874.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-praia-deserta.webp" type="image/webp"><img alt="" src="imagens/gallery-praia-deserta.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/CBC422ED-545E-4E5D-9820-BAE8F527E03C.webp" type="image/webp"><img alt="" src="imagens/CBC422ED-545E-4E5D-9820-BAE8F527E03C.jpg" loading="lazy" decoding="async"></picture></div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Carrossel 2 — direita -->
+    <div class="gallery-carousel gallery-carousel--right gallery-carousel--row-2">
+    <div class="gallery-carousel__track">
+    <div class="gallery-carousel__set">
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/4473A165-4D5D-4A83-8A80-782C827B51B9.webp" type="image/webp"><img alt="Liberdade no mar" src="imagens/4473A165-4D5D-4A83-8A80-782C827B51B9.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-celebracao-bordo.webp" type="image/webp"><img alt="Celebração a bordo" src="imagens/gallery-celebracao-bordo.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/4D4B5CBB-BEE0-4008-8BA6-A9864A4BADDC.webp" type="image/webp"><img alt="Momento a bordo" src="imagens/4D4B5CBB-BEE0-4008-8BA6-A9864A4BADDC.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-submarino-luz.webp" type="image/webp"><img alt="Luz submarina" src="imagens/gallery-submarino-luz.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/0E337907-03A1-410D-9260-04242B054220.webp" type="image/webp"><img alt="Águas douradas" src="imagens/0E337907-03A1-410D-9260-04242B054220.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-lancha-ancorada.webp" type="image/webp"><img alt="Lancha ancorada" src="imagens/gallery-lancha-ancorada.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/51562660-1A13-4D3E-9B56-965AD3E545A5.webp" type="image/webp"><img alt="Jetski ao pôr do sol" src="imagens/51562660-1A13-4D3E-9B56-965AD3E545A5.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-por-do-sol-dramatico.webp" type="image/webp"><img alt="Pôr do sol dramático" src="imagens/gallery-por-do-sol-dramatico.jpg" loading="lazy" decoding="async"></picture></div>
+    </div>
+    <div class="gallery-carousel__set" aria-hidden="true">
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/4473A165-4D5D-4A83-8A80-782C827B51B9.webp" type="image/webp"><img alt="" src="imagens/4473A165-4D5D-4A83-8A80-782C827B51B9.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-celebracao-bordo.webp" type="image/webp"><img alt="" src="imagens/gallery-celebracao-bordo.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/4D4B5CBB-BEE0-4008-8BA6-A9864A4BADDC.webp" type="image/webp"><img alt="" src="imagens/4D4B5CBB-BEE0-4008-8BA6-A9864A4BADDC.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-submarino-luz.webp" type="image/webp"><img alt="" src="imagens/gallery-submarino-luz.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/0E337907-03A1-410D-9260-04242B054220.webp" type="image/webp"><img alt="" src="imagens/0E337907-03A1-410D-9260-04242B054220.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-lancha-ancorada.webp" type="image/webp"><img alt="" src="imagens/gallery-lancha-ancorada.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/51562660-1A13-4D3E-9B56-965AD3E545A5.webp" type="image/webp"><img alt="" src="imagens/51562660-1A13-4D3E-9B56-965AD3E545A5.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-por-do-sol-dramatico.webp" type="image/webp"><img alt="" src="imagens/gallery-por-do-sol-dramatico.jpg" loading="lazy" decoding="async"></picture></div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Carrossel 3 — esquerda (velocidade diferente) -->
+    <div class="gallery-carousel gallery-carousel--left-slow gallery-carousel--row-3">
+    <div class="gallery-carousel__track">
+    <div class="gallery-carousel__set">
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/150BC390-0703-4FF8-AE34-ADB4416FB82E.webp" type="image/webp"><img alt="Grupo a bordo" src="imagens/150BC390-0703-4FF8-AE34-ADB4416FB82E.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-liberdade-yacht.webp" type="image/webp"><img alt="Liberdade no yacht" src="imagens/gallery-liberdade-yacht.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/BBA4A9BC-3ED3-415C-AAA7-751A61C20B0E.webp" type="image/webp"><img alt="Pôr do sol no litoral" src="imagens/BBA4A9BC-3ED3-415C-AAA7-751A61C20B0E.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/4ABCD396-E01C-4884-8B81-79484B26223D.webp" type="image/webp"><img alt="Experiência premium a bordo" src="imagens/4ABCD396-E01C-4884-8B81-79484B26223D.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-mergulho.webp" type="image/webp"><img alt="Mergulho tropical" src="imagens/gallery-mergulho.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.webp" type="image/webp"><img alt="Salto refrescante" src="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-praia-deserta.webp" type="image/webp"><img alt="Paraíso tropical" src="imagens/gallery-praia-deserta.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.webp" type="image/webp"><img alt="Horizonte dourado" src="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.jpg" loading="lazy" decoding="async"></picture></div>
+    </div>
+    <div class="gallery-carousel__set" aria-hidden="true">
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/150BC390-0703-4FF8-AE34-ADB4416FB82E.webp" type="image/webp"><img alt="" src="imagens/150BC390-0703-4FF8-AE34-ADB4416FB82E.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-liberdade-yacht.webp" type="image/webp"><img alt="" src="imagens/gallery-liberdade-yacht.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/BBA4A9BC-3ED3-415C-AAA7-751A61C20B0E.webp" type="image/webp"><img alt="" src="imagens/BBA4A9BC-3ED3-415C-AAA7-751A61C20B0E.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/4ABCD396-E01C-4884-8B81-79484B26223D.webp" type="image/webp"><img alt="" src="imagens/4ABCD396-E01C-4884-8B81-79484B26223D.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-mergulho.webp" type="image/webp"><img alt="" src="imagens/gallery-mergulho.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.webp" type="image/webp"><img alt="" src="imagens/04AD684C-A7F6-4073-8216-86BDC6616C16.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/gallery-praia-deserta.webp" type="image/webp"><img alt="" src="imagens/gallery-praia-deserta.jpg" loading="lazy" decoding="async"></picture></div>
+    <div class="gallery-carousel__item"><picture><source srcset="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.webp" type="image/webp"><img alt="" src="imagens/21451721-F386-49B2-B2AB-E1C0475D32CC.jpg" loading="lazy" decoding="async"></picture></div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </section>
+    <!-- Final CTA -->
+    <section class="relative py-section-padding-mobile md:py-section-padding-desktop overflow-hidden">
+    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-navy-deep/70 z-10"></div>
+    <picture><source srcset="imagens/BBA4A9BC-3ED3-415C-AAA7-751A61C20B0E.webp" type="image/webp"><img alt="Pôr do sol no litoral" class="w-full h-full object-cover" src="imagens/BBA4A9BC-3ED3-415C-AAA7-751A61C20B0E.jpg" loading="lazy" decoding="async"></picture>
+    </div>
+    <div class="relative z-20 max-w-container-max mx-auto px-gutter text-center py-20">
+    <h2 class="font-display-lg text-white text-3xl md:text-5xl font-lexend-zetta mb-8 max-w-4xl mx-auto">SUA PRÓXIMA MEMÓRIA INESQUECÍVEL COMEÇA AQUI</h2>
+    <p class="text-white/80 font-body-lg mb-12 max-w-2xl mx-auto">Fale agora com nosso especialista e garanta sua data no paraíso.</p>
+    <a class="inline-flex items-center gap-4 bg-primary text-white px-12 py-6 rounded-full font-lexend-zetta text-lg md:text-xl hover:bg-white hover:text-primary transition-all shadow-2xl active:scale-95" href="https://wa.me/5500000000000">
+                    FALE COM UM ESPECIALISTA
+                    <svg class="icon-whatsapp icon-whatsapp-xl" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-navy-deep text-white pt-20 pb-10 border-t border-white/5">
+    <div class="max-w-container-max mx-auto px-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+    <div class="col-span-1 md:col-span-2">
+    <span class="font-lexend-zetta text-2xl tracking-tighter block mb-4">RELUX OCEAN</span>
+    <p class="text-white/50 max-w-md mb-8">Referência em experiências náuticas de luxo no litoral do Rio de Janeiro. Proporcionamos momentos exclusivos com segurança, sofisticação e curadoria impecável.</p>
+    <div class="flex gap-4">
+    <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" href="#">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.607.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.607-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.607-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.69-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+    </a>
+    <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" href="#">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+    </a>
+    </div>
+    </div>
+    <div>
+    <h4 class="font-lexend-zetta text-sm mb-6">LINKS</h4>
+    <ul class="space-y-4 text-white/40 text-sm">
+    <li class=""><a class="hover:text-secondary transition-colors" href="#">Home</a></li>
+    <li class=""><a class="hover:text-secondary transition-colors" href="#sobre">Sobre Nós</a></li>
+    <li class=""><a class="hover:text-secondary transition-colors" href="#roteiros">Roteiros</a></li>
+    <li class=""><a class="hover:text-secondary transition-colors" href="#experiencias">Experiências</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="font-lexend-zetta text-sm mb-6">SUPORTE</h4>
+    <ul class="space-y-4 text-white/40 text-sm">
+    <li class=""><a class="hover:text-secondary transition-colors" href="https://wa.me/5500000000000" target="_blank">Fale Conosco</a></li>
+    <li class=""><a class="hover:text-secondary transition-colors" href="#">Charter Terms</a></li>
+    <li class=""><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 text-[10px] font-label-caps">
+    <span class="">© 2024 Relux Ocean. All rights reserved. Nautical Excellence in Rio de Janeiro.</span>
+    <div class="flex gap-6">
+    <span class="">DESIGNED FOR LUXURY</span>
+    <span class="">MADE IN RIO</span>
+    </div>
+    </div>
+    </div>
+    </footer>
+    <!-- Floating Contact -->
+    <a class="fixed bottom-8 right-8 z-[60] bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 active:scale-95 transition-all" href="https://wa.me/5500000000000" target="_blank" aria-label="Fale Conosco">
+    <svg class="icon-whatsapp icon-whatsapp-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <script>
+            // Header transparency change on scroll
+            const header = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.remove('bg-transparent', 'py-6');
+                    header.classList.add('glass-header', 'py-4', 'shadow-lg');
+                } else {
+                    header.classList.add('bg-transparent', 'py-6');
+                    header.classList.remove('glass-header', 'py-4', 'shadow-lg');
+                }
+            });
+    
+            // Simple smooth scroll fallback if not supported
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    
+    
+    </body></html>
